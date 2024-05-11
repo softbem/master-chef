@@ -92,7 +92,7 @@ function updateCartModal(){
                     <button class="remover-from-cart-btn" data-name="${item.name}">
                         Remover-Item
                     </button>
-
+                    
          </div>
          `
     
@@ -179,14 +179,14 @@ checkoutBtn.addEventListener("click", function(){
 
     const cartItems = cart.map((item) => {
         return(
-        ` ${item.name} Quantidade: (${item.quantity}) Preço: R$${item.price} |`
+        ` Produto: ${item.name} Qtd: (${item.quantity}) Preço: R$${item.price} | `
         )
     }).join("")
 
     const message = encodeURIComponent(cartItems)
     const phone = "35998322212"
 
-    window.open(`https://wa.me/${phone}?text=${message} Endereço: ${addressInput.value} `, "_blank")
+        window.open(`https://wa.me/${phone}?text=Olá,+Seu+pedido+está+sendo+separado+OK.+A+forma+de+pagamento+somente,+PIX+ou+Cartão.+Agradecemos+pela+preferencia.+SUA+COMPRA==>${message} Endereço: ${addressInput.value} `, "_blank")
 
      cart = [];
         updateCartModal();
@@ -198,7 +198,7 @@ checkoutBtn.addEventListener("click", function(){
 function checkRestaurantOpen(){
     const data = new Date();
     const hora = data.getHours();
-    return hora >= 8 && hora < 2330;
+    return hora >= 8 && hora < 20;
 }
 
 const spanItem = document.getElementById("date-span")
