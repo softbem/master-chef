@@ -87,7 +87,8 @@ function updateCartModal(){
                     <p>Qtd: ${item.quantity}</p>
 
                     <p class="font-medium mt-2">R$ ${item.price.toFixed(2)}</p>
-               </div>
+
+               </div> 
 
                     <button class="remover-from-cart-btn" data-name="${item.name}">
                         Remover-Item
@@ -95,7 +96,6 @@ function updateCartModal(){
                     
          </div>
          `
-    
          total += item.price * item.quantity;
 
          cartItemsContainer.appendChild(cartItemElement)
@@ -179,14 +179,17 @@ checkoutBtn.addEventListener("click", function(){
 
     const cartItems = cart.map((item) => {
         return(
-        ` Produto: ${item.name} Qtd: (${item.quantity}) Preço: R$${item.price} | `
+        `Produto: ${item.name} Qtd: (${item.quantity}) Preço: R$${item.price} | `
         )
+        
     }).join("")
 
     const message = encodeURIComponent(cartItems)
     const phone = "35998322212"
 
-        window.open(`https://wa.me/${phone}?text=Olá,+Seu+pedido+está+sendo+separado+OK.+A+forma+de+pagamento+somente,+PIX+ou+Cartão.+Agradecemos+pela+preferencia.+SUA+COMPRA==>${message} Endereço: ${addressInput.value} `, "_blank")
+   
+
+    window.open(`https://wa.me/${phone}?text=${message} Endereço: ${addressInput.value} `, "_blank")
 
      cart = [];
         updateCartModal();
