@@ -155,7 +155,7 @@ checkoutBtn.addEventListener("click", function(){
     if(!isOpen){
        
         Toastify({
-            text: "Mercearia no momnto esta Fechado!",
+            text: "Mercearia no momnto esta Fechado.",
             duration: 3000,
             close: true,
             gravity: "top", // `top` or `bottom`
@@ -189,7 +189,7 @@ checkoutBtn.addEventListener("click", function(){
 
    
 
-    window.open(`https://wa.me/${phone}?text=OLÁ+SEU+PEDIDO+ESTÁ+SENDO+SEPARADO.${message} Endereço: ${addressInput.value} `, "_blank")
+    window.open(`https://wa.me/${phone}?text=OLÁ+SEU+PEDIDO+ESTÁ+SENDO+SEPARADO.${message} Nome, Endereço, n°, Bairro: ${addressInput.value} `, "_blank")
 
      cart = [];
         updateCartModal();
@@ -201,7 +201,7 @@ checkoutBtn.addEventListener("click", function(){
 function checkRestaurantOpen(){
     const data = new Date();
     const hora = data.getHours();
-    return hora >= 8 && hora < 20;
+    return hora >= 8 && hora < 23;
 }
 
 const spanItem = document.getElementById("date-span")
